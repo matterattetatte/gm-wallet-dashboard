@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Decentralized Wallet Dashboard</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <link rel="stylesheet" href="./style.css">
+</head>
+<body class="bg-gray-50 dark:bg-gray-900 text-gray-900 dark:text-gray-100 min-h-screen">
+
+    <header class="sticky top-0 z-10 bg-white dark:bg-gray-800 shadow-sm">
+        <div class="container flex justify-between items-center h-16">
+            <div class="flex items-center">
+                <h1 class="text-2xl font-bold text-indigo-600 dark:text-indigo-400">GMWallet</h1>
+            </div>
+            <nav class="hidden md:flex space-x-8">
+                <a href="#wallet" class="text-gray-700 dark:text-gray-300 hover:text-indigo-600 dark:hover:text-indigo-400 font-medium transition-colors">Wallet</a>
+                <a href="#transactions" class="text-gray-700 dark:text-gray-300 hover:text-indigo-600 dark:hover:text-indigo-400 font-medium transition-colors">Transactions</a>
+            </nav>
+            <button id="mobile-menu-button" class="md:hidden text-gray-700 dark:text-gray-300 hover:text-indigo-600 dark:hover:text-indigo-400">
+                <i class="fas fa-bars text-xl"></i>
+            </button>
+        </div>
+    </header>
+
+    <div id="mobile-menu" class="mobile-menu">
+        <a href="#wallet">Wallet</a>
+        <a href="#transactions">Transactions</a>
+    </div>
+
+    <main class="container py-8 space-y-12">
+
+        <section id="wallet" class="scroll-mt-20">
+            <h2 class="section-title">Wallet Overview</h2>
+            <div class="balance-card">
+                <div class="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
+                    <div>
+                        <div class="flex items-center space-x-2">
+                            <i class="fab fa-ethereum text-2xl sm:text-3xl"></i>
+                            <span class="text-3xl sm:text-4xl font-bold">24.587</span>
+                        </div>
+                        <div class="text-lg sm:text-xl opacity-90 mt-1">$58,421.32 USD</div>
+                    </div>
+                    <div class="text-right sm:text-left">
+                        <div class="flex items-center justify-end sm:justify-start space-x-1 text-green-300">
+                            <i class="fas fa-arrow-up"></i>
+                            <span class="text-base sm:text-lg font-semibold">+12.4%</span>
+                        </div>
+                        <div class="text-sm opacity-80">+$6,452.11</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="transactions" class="scroll-mt-20">
+            <h2 class="section-title">Recent Transactions</h2>
+            <div class="card">
+                <div class="overflow-x-auto">
+                    <table class="table w-full min-w-full">
+                        <thead>
+                            <tr>
+                                <th>From</th>
+                                <th>To</th>
+                                <th>Amount</th>
+                                <th>Time</th>
+                            </tr>
+                        </thead>
+                        <tbody class="divide-y divide-gray-200 dark:divide-gray-700">
+                            <tr>
+                                <td class="font-mono text-gray-600 dark:text-gray-400">0x71C7...a2f3</td>
+                                <td class="font-mono text-gray-600 dark:text-gray-400">0x8b3A...d9e1</td>
+                                <td class="font-medium text-indigo-600 dark:text-indigo-400">2.45 ETH</td>
+                                <td class="text-gray-500 dark:text-gray-400">2 hours ago</td>
+                            </tr>
+                            <tr>
+                                <td class="font-mono text-gray-600 dark:text-gray-400">0x19aF...c7b4</td>
+                                <td class="font-mono text-gray-600 dark:text-gray-400">0x71C7...a2f3</td>
+                                <td class="font-medium text-green-600 dark:text-green-400">+0.89 ETH</td>
+                                <td class="text-gray-500 dark:text-gray-400">5 hours ago</td>
+                            </tr>
+                            <tr>
+                                <td class="font-mono text-gray-600 dark:text-gray-400">0x71C7...a2f3</td>
+                                <td class="font-mono text-gray-600 dark:text-gray-400">0xf4d2...e8c9</td>
+                                <td class="font-medium text-indigo-600 dark:text-indigo-400">5.00 ETH</td>
+                                <td class="text-gray-500 dark:text-gray-400">1 day ago</td>
+                            </tr>
+                            <tr>
+                                <td class="font-mono text-gray-600 dark:text-gray-400">0x3d9e...b1f5</td>
+                                <td class="font-mono text-gray-600 dark:text-gray-400">0x71C7...a2f3</td>
+                                <td class="font-medium text-green-600 dark:text-green-400">+1.20 ETH</td>
+                                <td class="text-gray-500 dark:text-gray-400">2 days ago</td>
+                            </tr>
+                            <tr>
+                                <td class="font-mono text-gray-600 dark:text-gray-400">0x71C7...a2f3</td>
+                                <td class="font-mono text-gray-600 dark:text-gray-400">0x6a1b...f3d7</td>
+                                <td class="font-medium text-indigo-600 dark:text-indigo-400">3.75 ETH</td>
+                                <td class="text-gray-500 dark:text-gray-400">3 days ago</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </section>
+
+        <section id="create-transaction" class="scroll-mt-20">
+            <h2 class="section-title">Create Transaction</h2>
+            <div class="card p-6">
+                <form class="space-y-5">
+                    <div>
+                        <label for="recipient" class="label">Recipient Address</label>
+                        <input type="text" id="recipient" placeholder="0x..." required class="input">
+                    </div>
+                    <div>
+                        <label for="amount" class="label">Amount (ETH)</label>
+                        <input type="number" id="amount" step="0.000001" min="0" placeholder="0.00" required class="input">
+                    </div>
+                    <div>
+                        <label for="note" class="label">Note (optional)</label>
+                        <textarea id="note" rows="3" placeholder="e.g., Payment for services" class="textarea resize-none"></textarea>
+                    </div>
+                    <div class="flex flex-col sm:flex-row gap-3 pt-2">
+                        <button type="submit" class="flex-1 btn btn-primary">Send Transaction</button>
+                        <button type="reset" class="flex-1 btn btn-secondary">Clear</button>
+                    </div>
+                </form>
+            </div>
+        </section>
+
+    </main>
+
+    <script>
+        const btn = document.getElementById('mobile-menu-button');
+        const menu = document.getElementById('mobile-menu');
+        if (btn && menu) {
+            btn.addEventListener('click', () => menu.classList.toggle('hidden'));
+        }
+    </script>
+
+</body>
+</html>
